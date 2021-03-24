@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: pyapi
+    tier: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pyapi
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: pyapi
+        tier: frontend
+    spec:
+      containers:
+      - name: pyapi
+        image: ##### TBD
+        ports:
+        - containerPort: 3000
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
+          periodSeconds: 30
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
+          periodSeconds: 30
