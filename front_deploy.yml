@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: pyapi
-        image: ##### TBD
+        image: gtechnology/pyapi:latest
         ports:
         - containerPort: 3000
         readinessProbe:
