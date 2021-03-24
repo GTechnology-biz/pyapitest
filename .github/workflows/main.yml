@@ -28,7 +28,7 @@ jobs:
         uses: makocchi-git/actions-k8s-manifests-validate-kubeval@v1.0.1
         with:
         # Files or directories to validate (kubeval --directories)
-          files: front_serv.yml front_deploy.yml
+          files: ../front_serv.yml ../front_deploy.yml
         # Version of Kubernetes to validate against (kubeval --kubernetes-version)
           version: main
 
